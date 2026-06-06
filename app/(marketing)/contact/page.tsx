@@ -35,7 +35,7 @@ export default function ContactPage() {
                 <div>
                   <p className="text-sm font-semibold text-[var(--text-primary)]">Email</p>
                   <p className="text-sm text-[var(--text-secondary)]">
-                    Use the form — I&apos;ll reply within 24 hours
+                    Use the form — It goes straight to my inbox 
                   </p>
                 </div>
               </div>
@@ -59,7 +59,7 @@ export default function ContactPage() {
                 <div>
                   <p className="text-sm font-semibold text-[var(--text-primary)]">Location</p>
                   <p className="text-sm text-[var(--text-secondary)]">
-                    Online (anywhere) and local in-person sessions
+                    Online (anywhere!) 
                   </p>
                 </div>
               </div>

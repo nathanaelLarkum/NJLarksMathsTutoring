@@ -34,7 +34,7 @@ export function BrandLogo({ className }: BrandLogoProps) {
       {/* Desktop: full logo */}
       <span className="hidden md:block">
         <Image
-          src={isDark ? "/logo/njlmtfull_light.png" : "/logo/njlmtfull_dark.png"}
+          src={isDark ? "/logo/njlmtfull_dark.png" : "/logo/njlmtfull_light.png"}
           alt="NJLarks Maths Tutoring"
           width={180}
           height={48}
@@ -51,7 +51,7 @@ export function BrandLogo({ className }: BrandLogoProps) {
       {/* Mobile: icon logo */}
       <span className="block md:hidden">
         <Image
-          src="/logo/njlmtfi.png"
+          src={isDark ? "/logo/njlmt_dark.png" : "/logo/njlmt_light.png"}
           alt="NJLarks Maths Tutoring"
           width={40}
           height={40}
