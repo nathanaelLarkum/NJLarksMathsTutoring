@@ -24,7 +24,7 @@ export default function ServicesPage() {
           </h1>
           <p className="body-lg max-w-2xl text-[var(--text-secondary)]">
             1-to-1 maths tuition for Year 7–11. Each session is structured, encouraging, and designed
-            around your child's unique needs.
+            around your child&apos;s unique needs.
           </p>
         </div>
       </section>
@@ -34,7 +34,7 @@ export default function ServicesPage() {
         <div className="container-wide mx-auto px-4">
           <h2 className="heading-lg mb-3 text-[var(--text-primary)]">Session lengths</h2>
           <p className="body-lg mb-10 text-[var(--text-secondary)]">
-            Choose the session length that fits your child's needs and attention span.
+            Choose the session length that fits your child&apos;s needs and attention span.
           </p>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {sessionTypes.map((session) => (
