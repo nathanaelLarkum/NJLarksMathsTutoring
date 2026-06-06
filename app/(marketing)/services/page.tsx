@@ -6,7 +6,7 @@ import { yearGroups, sessionTypes } from "@/content/services";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "1-to-1 maths tutoring for Year 7–11 students. Sessions from 30 minutes to 2 hours, online or in-person.",
+    "1-to-1 maths tutoring for Year 7–11 students. Sessions from 30 minutes to 2 hours, online via video call (Google Meets).",
 };
 
 export default function ServicesPage() {
@@ -24,7 +24,7 @@ export default function ServicesPage() {
           </h1>
           <p className="body-lg max-w-2xl text-[var(--text-secondary)]">
             1-to-1 maths tuition for Year 7–11. Each session is structured, encouraging, and designed
-            around your child&apos;s unique needs.
+            around your child's unique needs.
           </p>
         </div>
       </section>
@@ -34,7 +34,7 @@ export default function ServicesPage() {
         <div className="container-wide mx-auto px-4">
           <h2 className="heading-lg mb-3 text-[var(--text-primary)]">Session lengths</h2>
           <p className="body-lg mb-10 text-[var(--text-secondary)]">
-            Choose the session length that fits your child&apos;s needs and attention span.
+            Choose the session length that fits your child's needs and attention span.
           </p>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {sessionTypes.map((session) => (
@@ -113,47 +113,27 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Online vs In-person */}
+      {/* Online sessions */}
       <section className="section-padding bg-[var(--muted)]">
         <div className="container-tight mx-auto px-4">
           <h2 className="heading-lg mb-8 text-center text-[var(--text-primary)]">
-            Online or in-person?
+            Online sessions
           </h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6">
-              <h3 className="heading-sm mb-3 text-[var(--primary)]">💻 Online sessions</h3>
-              <ul className="space-y-2">
-                {[
-                  "Via video call (e.g. Zoom, Google Meet)",
-                  "Digital whiteboard for working through problems",
-                  "Screen sharing for demonstrations",
-                  "Flexible — no travel required",
-                  "Suitable for students anywhere",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--success)]" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6">
-              <h3 className="heading-sm mb-3 text-[var(--secondary)]">📍 In-person sessions</h3>
-              <ul className="space-y-2">
-                {[
-                  "Face-to-face at an agreed local location",
-                  "Hands-on working with pen and paper",
-                  "Great for students who prefer in-person interaction",
-                  "Location discussed at time of booking",
-                  "Local area only — contact to discuss",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--success)]" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6">
+            <ul className="space-y-2">
+              {[
+                "Via video call (e.g. Zoom, Google Meet)",
+                "Digital whiteboard for working through problems",
+                "Screen sharing for demonstrations",
+                "Flexible — no travel required",
+                "Suitable for students anywhere",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--success)]" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

@@ -49,9 +49,12 @@ export function HeroSection() {
           <FadeUp delay={0.1}>
             <h1 className="heading-xl mb-6 text-[var(--text-primary)]">
               Friendly maths tutoring that{" "}
-              <span className="text-[var(--primary)]">ce.</span>
+              <span className="text-[var(--primary)]">Builds confidence </span>
+              and
+              <span className="text-[var(--primary)]"> Skills.</span>
             </h1>
           </FadeUp>
+          
 
           {/* Subtext */}
           <FadeUp delay={0.2}>

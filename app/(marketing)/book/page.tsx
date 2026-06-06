@@ -5,7 +5,7 @@ import { BookingForm } from "@/components/forms/BookingForm";
 export const metadata: Metadata = {
   title: "Book a Session",
   description:
-    "Book a maths tutoring session with NJLarks. Free initial consultation — online or in-person for Year 7–11 students.",
+    "Book a maths tutoring session with NJLarks. Free initial consultation — online for Year 7–11 students.",
 };
 
 const steps = [

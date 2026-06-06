@@ -7,13 +7,13 @@ const trustItems = [
   {
     icon: GraduationCap,
     title: "Qualified Tutor",
-    description: "Mathematics degree & teaching experience",
+    description: "Maths A-Level & 4 years of teaching experience",
   },
   {
     icon: ShieldCheck,
     title: "DBS Checked",
-    description: "Full disclosure & barring check in place",
-  },
+    description: "Certificuit held",
+  }, 
   {
     icon: Heart,
     title: "Friendly Approach",

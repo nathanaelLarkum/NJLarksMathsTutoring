@@ -45,8 +45,7 @@ export function TeachingApproach() {
             How I teach
           </h2>
           <p className="body-lg mx-auto max-w-2xl text-[var(--text-secondary)]">
-            My approach is built on understanding, not rote learning. Every student deserves to feel
-            capable and confident in maths.
+            My approach is built on understanding, not memorising content. I work hard to fit the learning methods to the student. Every student is different!
           </p>
         </motion.div>
 

@@ -79,10 +79,6 @@ export function Footer() {
                 </Link>
               </li>
               <li className="flex items-start gap-2 text-[var(--text-secondary)]">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--primary)]" />
-                <span className="body-md">Online & local sessions available</span>
-              </li>
-              <li className="flex items-start gap-2 text-[var(--text-secondary)]">
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-[var(--primary)]" />
                 <span className="body-md">Flexible scheduling</span>
               </li>

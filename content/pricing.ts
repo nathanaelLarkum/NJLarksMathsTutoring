@@ -21,7 +21,7 @@ export const pricingPlans: PricingPlan[] = [
     features: [
       "Book sessions as you need them",
       "30 min, 60 min, 90 min or 2 hr sessions",
-      "Online or local in-person",
+      "Online ",
       "Tailored to your child's needs",
       "Flexible scheduling",
     ],
@@ -38,10 +38,10 @@ export const pricingPlans: PricingPlan[] = [
     features: [
       "8 hours of tutoring",
       "Flexible session lengths",
-      "Online or local in-person",
+      "Online ",
       "Progress tracking across sessions",
       "Priority booking",
-      "Structured learning plan",
+    
     ],
     cta: "Get the Bundle",
     highlighted: true,
@@ -57,10 +57,9 @@ export const pricingPlans: PricingPlan[] = [
     features: [
       "16 hours of tutoring",
       "Flexible session lengths",
-      "Online or local in-person",
+      "Online ",
       "Detailed progress tracking",
       "Priority booking",
-      "Comprehensive learning plan",
       "Regular parent/student updates",
     ],
     cta: "Get the Bundle",

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | NJLarks Maths Tutoring",
   },
   description:
-    "Friendly, structured 1-to-1 maths tutoring for Year 7–11 students. Build confidence and achieve results with NJLarks Maths Tutoring. Online and local sessions available.",
+    "Friendly, structured 1-to-1 maths tutoring for Year 7–11 students. Build confidence and achieve results with NJLarks Maths Tutoring. Online sessions taking place over the phone (Googl meets).",
   keywords: [
     "maths tutor",
     "maths tutoring",

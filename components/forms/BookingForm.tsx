@@ -191,15 +191,13 @@ export function BookingForm() {
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor="b-sessionFormat">Online or in-person? *</Label>
+          <Label htmlFor="b-sessionFormat">Session format *</Label>
           <Select onValueChange={(val) => setValue("sessionFormat", val)}>
             <SelectTrigger id="b-sessionFormat" aria-invalid={!!errors.sessionFormat}>
               <SelectValue placeholder="Select format" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="online">Online</SelectItem>
-              <SelectItem value="in-person">In-person (local)</SelectItem>
-              <SelectItem value="either">Either works</SelectItem>
             </SelectContent>
           </Select>
           {errors.sessionFormat && (

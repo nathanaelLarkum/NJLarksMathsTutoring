@@ -15,9 +15,9 @@ export const faqs = [
       "Standard sessions are charged at £30 per hour. I also offer discounted packages: 8 hours for £220 (saving £20) and 16 hours for £420 (saving £60). Packages are great for consistent progress.",
   },
   {
-    question: "Do you offer online or in-person tutoring?",
+    question: "Do you offer online tutoring?",
     answer:
-      "Both! I offer online sessions via video call and local in-person sessions. Online tutoring is just as effective and gives more flexibility around your schedule.",
+      "Yes! I offer online sessions via video call. Online tutoring is effective and gives flexibility around your schedule.",
   },
   {
     question: "What resources do you use?",
