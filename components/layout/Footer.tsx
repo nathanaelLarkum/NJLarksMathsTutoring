@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, Clock } from "lucide-react";
 import { FallbackLogo } from "./BrandLogo";
 
 const quickLinks = [
