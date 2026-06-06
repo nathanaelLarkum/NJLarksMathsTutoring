@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Light theme ─────────────────────────────────────── */
+:root {
+  --background: #fafaf8;
+  --surface: #ffffff;
+  --surface-hover: #f3f3f0;
+  --primary: #244b63;
+  --primary-foreground: #ffffff;
+  --secondary: #3a7a72;
+  --secondary-foreground: #ffffff;
+  --accent: #e8b44b;
+  --accent-foreground: #15202b;
+  --text-primary: #15202b;
+  --text-secondary: #4a5568;
+  --border: #e2e8f0;
+  --success: #2f855a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --radius: 0.75rem;
+}
+
+/* ─── Dark theme ──────────────────────────────────────── */
+.dark {
+  --background: #0f1720;
+  --surface: #16202a;
+  --surface-hover: #1e2d3d;
+  --primary: #72a6d6;
+  --primary-foreground: #0f1720;
+  --secondary: #6bc3b5;
+  --secondary-foreground: #0f1720;
+  --accent: #f0c96a;
+  --accent-foreground: #0f1720;
+  --text-primary: #f5f7fa;
+  --text-secondary: #94a3b8;
+  --border: #2d3f52;
+  --success: #48bb78;
+  --muted: #1e2d3d;
+  --muted-foreground: #94a3b8;
+  --destructive: #f87171;
+  --destructive-foreground: #0f1720;
+}
+
+/* ─── Base styles ─────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-text-primary;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-space-grotesk), system-ui, sans-serif;
+    @apply text-text-primary;
+  }
+
+  p,
+  li,
+  span,
+  label {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+}
+
+/* ─── Utilities ───────────────────────────────────────── */
+@layer utilities {
+  .border-default {
+    border-color: var(--border);
+  }
+
+  .section-padding {
+    @apply px-4 py-16 md:py-24;
+  }
+
+  .container-tight {
+    @apply mx-auto max-w-4xl px-4;
+  }
+
+  .container-wide {
+    @apply mx-auto max-w-7xl px-4;
+  }
+
+  .heading-xl {
+    @apply text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl;
+    font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  }
+
+  .heading-lg {
+    @apply text-3xl font-bold tracking-tight md:text-4xl;
+    font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  }
+
+  .heading-md {
+    @apply text-2xl font-semibold tracking-tight md:text-3xl;
+    font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  }
+
+  .heading-sm {
+    @apply text-xl font-semibold;
+    font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  }
+
+  .body-lg {
+    @apply text-lg leading-relaxed;
+  }
+
+  .body-md {
+    @apply text-base leading-relaxed;
+  }
+}

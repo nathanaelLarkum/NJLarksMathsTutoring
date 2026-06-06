@@ -1,0 +1,21 @@
+{
+  "name": "NJLarks Maths Tutoring",
+  "short_name": "NJLarks",
+  "description": "1-to-1 maths tutoring for Year 7–11 students",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF8",
+  "theme_color": "#244B63",
+  "icons": [
+    {
+      "src": "/logo/njlmtfi.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo/njlmtfi.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
