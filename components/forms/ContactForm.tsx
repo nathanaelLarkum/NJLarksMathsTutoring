@@ -47,20 +47,16 @@ export function ContactForm() {
     setSubmitting(true);
     setError(null);
 
-    const formData = new FormData();
-    formData.append("form-name", "contact");
-    Object.entries(data).forEach(([key, value]) => {
-      if (value) formData.append(key, value);
-    });
+
 
     try {
-      const res = await fetch("/", {
+      const res = await fetch("/.netlify/functions/submit-form", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
 
-      if (res.ok || res.status === 200 || res.status === 404) {
+      if (res.ok) {
         setSubmitted(true);
       } else {
         throw new Error("Submission failed");
@@ -90,12 +86,11 @@ export function ContactForm() {
     <form
       name="contact"
       method="POST"
-      data-netlify="true"
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-5"
       noValidate
     >
-      <input type="hidden" name="form-name" value="contact" />
+
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-1.5">
