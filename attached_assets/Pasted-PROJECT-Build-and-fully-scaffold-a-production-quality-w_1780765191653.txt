@@ -1,0 +1,329 @@
+PROJECT: Build and fully scaffold a production-quality website for a private maths tutoring business called “NJLarks Maths Tutoring”.
+
+You are acting as a senior Next.js engineer, product designer, UX designer, accessibility engineer and frontend architect.
+
+OBJECTIVE
+
+Build a complete tutoring business website designed to convert visitors into enquiries while remaining warm, approachable, structured and trustworthy.
+
+Brand personality:
+
+* Calm
+* Structured
+* Encouraging
+* Friendly
+* Professional
+* Human
+
+Target audience:
+Parents and students (Year 7–11) seeking 1-to-1 maths tutoring.
+
+Business model:
+
+* Online and/or local tutoring
+* 1-to-1 sessions
+* 30 min to 2 hour sessions
+* £30/hour
+* Discount packages:
+    * 8 hours = £220
+    * 16 hours = £420
+
+TECH STACK
+
+Required:
+
+* Next.js latest App Router
+* TypeScript
+* Tailwind CSS latest
+* shadcn/ui
+* Framer Motion
+* next-themes
+* react-hook-form
+* zod
+* lucide-react
+* Netlify Forms
+* Vercel-compatible structure
+* ESLint
+* Prettier
+
+No database.
+No Stripe.
+No auth.
+
+PROJECT STRUCTURE
+
+Create:
+
+/app
+/(marketing)
+/about
+/services
+/pricing
+/results
+/faq
+/resources
+/contact
+/book
+/policies
+/privacy
+/safeguarding
+/terms
+
+/components
+/ui
+/layout
+/marketing
+/forms
+/lib
+/content
+/public
+/styles
+
+Create reusable sections.
+
+DESIGN SYSTEM
+
+Typography:
+Headings:
+Space Grotesk
+
+Body:
+Inter
+
+Theme support:
+Light and Dark.
+
+Implement next-themes.
+
+COLOUR ARCHITECTURE
+
+DO NOT hardcode colours.
+
+Create semantic variables in globals.css.
+
+Required:
+
+:root {
+–background
+–surface
+–surface-hover
+–primary
+–primary-foreground
+–secondary
+–accent
+–text-primary
+–text-secondary
+–border
+–success
+}
+
+.dark {
+same variables
+}
+
+Configure Tailwind to expose:
+
+bg-background
+bg-surface
+bg-primary
+text-primary
+text-secondary
+border-default
+etc.
+
+All styling must consume variables.
+
+NO HEX VALUES OUTSIDE globals.css.
+
+COLOURS
+
+Light:
+background #FAFAF8
+surface #FFFFFF
+primary #244B63
+secondary #3A7A72
+accent #E8B44B
+text-primary #15202B
+
+Dark:
+background #0F1720
+surface #16202A
+primary #72A6D6
+secondary #6BC3B5
+accent #F0C96A
+text-primary #F5F7FA
+
+LOGO IMPLEMENTATION
+
+Expect these files later:
+
+/public/logo/
+njlmtfull_light.png
+njlmtfull_dark.png
+njlmt_light.png
+njlmt_dark.png
+njlmtfi.png
+
+Create component:
+
+<BrandLogo />
+
+Automatically switch logo by theme.
+
+Desktop:
+full logo
+
+Mobile:
+icon logo
+
+Use favicon.
+
+WEBSITE PAGES
+
+HOME
+
+Hero:
+Headline:
+Friendly maths tutoring that builds confidence.
+
+Subtext:
+1-to-1 maths tutoring for Year 7–11 students.
+
+Buttons:
+Book Consultation
+View Pricing
+
+Trust strip:
+Qualifications
+DBS placeholder
+Friendly approach
+Structured lessons
+
+Sections:
+Teaching approach
+Pricing
+Testimonials placeholder
+FAQ
+CTA
+
+ABOUT
+
+Biography placeholders.
+
+Include:
+Qualifications
+Experience
+Teaching philosophy
+
+SERVICES
+
+Year 7–11 only.
+
+Explain:
+30 min
+60 min
+90 min
+2 hr
+
+PRICING
+
+Interactive pricing cards.
+
+CONTACT
+
+Netlify form.
+
+Fields:
+Parent name
+Student name
+Year group
+Email
+Goals
+Availability
+Message
+
+BOOK
+
+Booking form using Netlify Forms.
+
+FORMS
+
+All forms:
+Validation
+Success states
+Accessibility
+
+POLICIES
+
+Generate placeholders only.
+
+privacy:
+PLACEHOLDER_PRIVACY
+
+safeguarding:
+PLACEHOLDER_SAFEGUARDING
+
+terms:
+PLACEHOLDER_TERMS
+
+Create clear formatting.
+
+HEADER
+
+Sticky.
+
+Desktop nav.
+
+Mobile drawer.
+
+Dark mode toggle.
+
+FOOTER
+
+Logo
+Quick links
+Policies
+Contact
+
+ANIMATIONS
+
+Minimal.
+
+Fade
+Slide
+Hover
+
+No excessive motion.
+
+SEO
+
+Metadata
+Open graph
+Robots
+Sitemap
+Manifest
+
+Accessibility:
+AA minimum.
+
+Performance:
+Lazy loading
+Image optimisation
+
+DELIVERABLE
+
+Generate all files.
+
+Install dependencies.
+
+Create package scripts.
+
+Explain how to run.
+
+Explain where logos go.
+
+Explain how Netlify deployment works.
+
+Explain where to replace policy text.
+
+Generate production-ready code.
