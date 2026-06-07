@@ -27,8 +27,6 @@ const contactSchema = z.object({
   message: z.string().optional(),
 });
 
-type ContactFormData = z.infer<typeof contactSchema>;
-
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -39,11 +37,11 @@ export function ContactForm() {
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm<ContactFormData>({
+  } = useForm({
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = async () => {
     setSubmitting(true);
     setError(null);
 
@@ -55,10 +53,16 @@ export function ContactForm() {
 
       if (form) {
         const formData = new FormData(form);
+        const params = new URLSearchParams();
+        
+        for (const [key, value] of formData.entries()) {
+          params.append(key, String(value));
+        }
+
         const res = await fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(formData as any).toString(),
+          body: params.toString(),
         });
 
         if (res.ok || res.status === 301) {
@@ -67,7 +71,7 @@ export function ContactForm() {
           throw new Error("Submission failed");
         }
       }
-    } catch (err) {
+    } catch {
       setError(
         "Something went wrong. Please try again or email us directly."
       );

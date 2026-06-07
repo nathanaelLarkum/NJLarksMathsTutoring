@@ -29,8 +29,6 @@ const bookingSchema = z.object({
   hearAboutUs: z.string().optional(),
 });
 
-type BookingFormData = z.infer<typeof bookingSchema>;
-
 export function BookingForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -41,11 +39,11 @@ export function BookingForm() {
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm<BookingFormData>({
+  } = useForm({
     resolver: zodResolver(bookingSchema),
   });
 
-  const onSubmit = async (data: BookingFormData) => {
+  const onSubmit = async () => {
     setSubmitting(true);
     setError(null);
 
@@ -57,10 +55,16 @@ export function BookingForm() {
 
       if (form) {
         const formData = new FormData(form);
+        const params = new URLSearchParams();
+        
+        for (const [key, value] of formData.entries()) {
+          params.append(key, String(value));
+        }
+
         const res = await fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(formData as any).toString(),
+          body: params.toString(),
         });
 
         if (res.ok || res.status === 301) {
@@ -69,7 +73,7 @@ export function BookingForm() {
           throw new Error("Submission failed");
         }
       }
-    } catch (err) {
+    } catch {
       setError(
         "Something went wrong. Please try again or use the contact form."
       );
