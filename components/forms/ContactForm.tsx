@@ -121,7 +121,7 @@ export function ContactForm() {
               className="text-xs text-[var(--destructive)]"
               role="alert"
             >
-              {errors.parentName?.message}
+              {errors.parentName?.message as string}
             </p>
           )}
         </div>
@@ -143,7 +143,7 @@ export function ContactForm() {
               className="text-xs text-[var(--destructive)]"
               role="alert"
             >
-              {errors.studentName?.message}
+              {errors.studentName?.message as string}
             </p>
           )}
         </div>
@@ -174,7 +174,7 @@ export function ContactForm() {
               className="text-xs text-[var(--destructive)]"
               role="alert"
             >
-              {errors.yearGroup?.message}
+              {errors.yearGroup?.message as string}
             </p>
           )}
         </div>
@@ -191,7 +191,7 @@ export function ContactForm() {
           />
           {errors.email && (
             <p id="email-error" className="text-xs text-[var(--destructive)]" role="alert">
-              {errors.email?.message}
+              {errors.email?.message as string}
             </p>
           )}
         </div>
@@ -209,7 +209,7 @@ export function ContactForm() {
         />
         {errors.goals && (
           <p id="goals-error" className="text-xs text-[var(--destructive)]" role="alert">
-            {errors.goals?.message}
+            {errors.goals?.message as string}
           </p>
         )}
       </div>

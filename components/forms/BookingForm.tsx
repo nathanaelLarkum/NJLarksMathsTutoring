@@ -121,7 +121,7 @@ export function BookingForm() {
           />
           {errors.parentName && (
             <p className="text-xs text-[var(--destructive)]" role="alert">
-              {errors.parentName?.message}
+              {errors.parentName?.message as string}
             </p>
           )}
         </div>
@@ -136,7 +136,7 @@ export function BookingForm() {
           />
           {errors.studentName && (
             <p className="text-xs text-[var(--destructive)]" role="alert">
-              {errors.studentName?.message}
+              {errors.studentName?.message as string}
             </p>
           )}
         </div>
@@ -164,7 +164,7 @@ export function BookingForm() {
           </Select>
           {errors.yearGroup && (
             <p className="text-xs text-[var(--destructive)]" role="alert">
-              {errors.yearGroup?.message}
+              {errors.yearGroup?.message as string}
             </p>
           )}
         </div>
@@ -180,7 +180,7 @@ export function BookingForm() {
           />
           {errors.email && (
             <p className="text-xs text-[var(--destructive)]" role="alert">
-              {errors.email?.message}
+              {errors.email?.message as string}
             </p>
           )}
         </div>
@@ -206,7 +206,7 @@ export function BookingForm() {
           </Select>
           {errors.sessionType && (
             <p className="text-xs text-[var(--destructive)]" role="alert">
-              {errors.sessionType?.message}
+              {errors.sessionType?.message as string}
             </p>
           )}
         </div>
@@ -226,7 +226,7 @@ export function BookingForm() {
           </Select>
           {errors.sessionFormat && (
             <p className="text-xs text-[var(--destructive)]" role="alert">
-              {errors.sessionFormat?.message}
+              {errors.sessionFormat?.message as string}
             </p>
           )}
         </div>
@@ -243,7 +243,7 @@ export function BookingForm() {
         />
         {errors.goals && (
           <p className="text-xs text-[var(--destructive)]" role="alert">
-            {errors.goals?.message}
+            {errors.goals?.message as string}
           </p>
         )}
       </div>
@@ -261,7 +261,7 @@ export function BookingForm() {
         />
         {errors.availability && (
           <p className="text-xs text-[var(--destructive)]" role="alert">
-            {errors.availability?.message}
+            {errors.availability?.message as string}
           </p>
         )}
       </div>
