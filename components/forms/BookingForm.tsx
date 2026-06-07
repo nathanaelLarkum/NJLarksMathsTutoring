@@ -49,22 +49,30 @@ export function BookingForm() {
     setSubmitting(true);
     setError(null);
 
-
-
     try {
-      const res = await fetch("/.netlify/functions/submit-form", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      // Netlify form submission
+      const form = document.querySelector(
+        'form[name="booking"]'
+      ) as HTMLFormElement;
 
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        throw new Error("Submission failed");
+      if (form) {
+        const formData = new FormData(form);
+        const res = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData as any).toString(),
+        });
+
+        if (res.ok || res.status === 301) {
+          setSubmitted(true);
+        } else {
+          throw new Error("Submission failed");
+        }
       }
-    } catch {
-      setError("Something went wrong. Please try again or use the contact form.");
+    } catch (err) {
+      setError(
+        "Something went wrong. Please try again or use the contact form."
+      );
     } finally {
       setSubmitting(false);
     }
@@ -74,9 +82,13 @@ export function BookingForm() {
     return (
       <div className="flex flex-col items-center gap-4 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-10 text-center">
         <CheckCircle className="h-12 w-12 text-[var(--success)]" />
-        <h3 className="heading-sm text-[var(--text-primary)]">Booking request sent!</h3>
+        <h3 className="heading-sm text-[var(--text-primary)]">
+          Booking request sent!
+        </h3>
         <p className="body-md text-[var(--text-secondary)]">
-          Thank you for booking a consultation. I&apos;ll review your details and be in touch within 24 hours to confirm a time that works for everyone.
+          Thank you for booking a consultation. I&apos;ll review your details
+          and be in touch within 24 hours to confirm a time that works for
+          everyone.
         </p>
       </div>
     );
@@ -86,15 +98,16 @@ export function BookingForm() {
     <form
       name="booking"
       method="POST"
+      netlify
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-5"
       noValidate
     >
-      
-
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-1.5">
-          <Label htmlFor="b-parentName">Your name (parent / guardian) *</Label>
+          <Label htmlFor="b-parentName">
+            Your name (parent / guardian) *
+          </Label>
           <Input
             id="b-parentName"
             placeholder="e.g. Jane Smith"
@@ -128,15 +141,20 @@ export function BookingForm() {
         <div className="space-y-1.5">
           <Label htmlFor="b-yearGroup">Year group *</Label>
           <Select onValueChange={(val) => setValue("yearGroup", val)}>
-            <SelectTrigger id="b-yearGroup" aria-invalid={!!errors.yearGroup}>
+            <SelectTrigger
+              id="b-yearGroup"
+              aria-invalid={!!errors.yearGroup}
+            >
               <SelectValue placeholder="Select year group" />
             </SelectTrigger>
             <SelectContent>
-              {["Year 7", "Year 8", "Year 9", "Year 10", "Year 11"].map((y) => (
-                <SelectItem key={y} value={y}>
-                  {y}
-                </SelectItem>
-              ))}
+              {["Year 7", "Year 8", "Year 9", "Year 10", "Year 11"].map(
+                (y) => (
+                  <SelectItem key={y} value={y}>
+                    {y}
+                  </SelectItem>
+                )
+              )}
             </SelectContent>
           </Select>
           {errors.yearGroup && (
@@ -167,7 +185,10 @@ export function BookingForm() {
         <div className="space-y-1.5">
           <Label htmlFor="b-sessionType">Preferred session length *</Label>
           <Select onValueChange={(val) => setValue("sessionType", val)}>
-            <SelectTrigger id="b-sessionType" aria-invalid={!!errors.sessionType}>
+            <SelectTrigger
+              id="b-sessionType"
+              aria-invalid={!!errors.sessionType}
+            >
               <SelectValue placeholder="Select length" />
             </SelectTrigger>
             <SelectContent>
@@ -188,7 +209,10 @@ export function BookingForm() {
         <div className="space-y-1.5">
           <Label htmlFor="b-sessionFormat">Session format *</Label>
           <Select onValueChange={(val) => setValue("sessionFormat", val)}>
-            <SelectTrigger id="b-sessionFormat" aria-invalid={!!errors.sessionFormat}>
+            <SelectTrigger
+              id="b-sessionFormat"
+              aria-invalid={!!errors.sessionFormat}
+            >
               <SelectValue placeholder="Select format" />
             </SelectTrigger>
             <SelectContent>
@@ -220,7 +244,9 @@ export function BookingForm() {
       </div>
 
       <div className="space-y-1.5">
-        <Label htmlFor="b-availability">When are you generally available? *</Label>
+        <Label htmlFor="b-availability">
+          When are you generally available? *
+        </Label>
         <Textarea
           id="b-availability"
           placeholder="e.g. Weekday evenings after 5pm, Saturday mornings, anytime on Sundays..."
@@ -236,7 +262,9 @@ export function BookingForm() {
       </div>
 
       <div className="space-y-1.5">
-        <Label htmlFor="b-hearAboutUs">How did you hear about us? (optional)</Label>
+        <Label htmlFor="b-hearAboutUs">
+          How did you hear about us? (optional)
+        </Label>
         <Input
           id="b-hearAboutUs"
           placeholder="e.g. Google, word of mouth, school recommendation..."
@@ -265,7 +293,8 @@ export function BookingForm() {
       </Button>
 
       <p className="text-center text-xs text-[var(--text-secondary)]">
-        This is a booking request, not a confirmed session. I&apos;ll confirm availability and details within 24 hours.
+        This is a booking request, not a confirmed session. I&apos;ll confirm
+        availability and details within 24 hours.
       </p>
     </form>
   );

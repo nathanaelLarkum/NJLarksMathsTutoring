@@ -47,21 +47,27 @@ export function ContactForm() {
     setSubmitting(true);
     setError(null);
 
-
-
     try {
-      const res = await fetch("/.netlify/functions/submit-form", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      // Netlify form submission
+      const form = document.querySelector(
+        'form[name="contact"]'
+      ) as HTMLFormElement;
 
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        throw new Error("Submission failed");
+      if (form) {
+        const formData = new FormData(form);
+        const res = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData as any).toString(),
+        });
+
+        if (res.ok || res.status === 301) {
+          setSubmitted(true);
+        } else {
+          throw new Error("Submission failed");
+        }
       }
-    } catch {
+    } catch (err) {
       setError(
         "Something went wrong. Please try again or email us directly."
       );
@@ -76,7 +82,8 @@ export function ContactForm() {
         <CheckCircle className="h-12 w-12 text-[var(--success)]" />
         <h3 className="heading-sm text-[var(--text-primary)]">Message sent!</h3>
         <p className="body-md text-[var(--text-secondary)]">
-          Thank you for getting in touch. I&apos;ll be back to you as soon as possible — usually within 24 hours.
+          Thank you for getting in touch. I&apos;ll be back to you as soon as
+          possible — usually within 24 hours.
         </p>
       </div>
     );
@@ -86,12 +93,11 @@ export function ContactForm() {
     <form
       name="contact"
       method="POST"
+      netlify
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-5"
       noValidate
     >
-
-
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-1.5">
           <Label htmlFor="parentName">Your name (parent / guardian) *</Label>
@@ -99,11 +105,17 @@ export function ContactForm() {
             id="parentName"
             placeholder="e.g. Jane Smith"
             aria-invalid={!!errors.parentName}
-            aria-describedby={errors.parentName ? "parentName-error" : undefined}
+            aria-describedby={
+              errors.parentName ? "parentName-error" : undefined
+            }
             {...register("parentName")}
           />
           {errors.parentName && (
-            <p id="parentName-error" className="text-xs text-[var(--destructive)]" role="alert">
+            <p
+              id="parentName-error"
+              className="text-xs text-[var(--destructive)]"
+              role="alert"
+            >
               {errors.parentName.message}
             </p>
           )}
@@ -115,11 +127,17 @@ export function ContactForm() {
             id="studentName"
             placeholder="e.g. Alex Smith"
             aria-invalid={!!errors.studentName}
-            aria-describedby={errors.studentName ? "studentName-error" : undefined}
+            aria-describedby={
+              errors.studentName ? "studentName-error" : undefined
+            }
             {...register("studentName")}
           />
           {errors.studentName && (
-            <p id="studentName-error" className="text-xs text-[var(--destructive)]" role="alert">
+            <p
+              id="studentName-error"
+              className="text-xs text-[var(--destructive)]"
+              role="alert"
+            >
               {errors.studentName.message}
             </p>
           )}
@@ -130,19 +148,27 @@ export function ContactForm() {
         <div className="space-y-1.5">
           <Label htmlFor="yearGroup">Year group *</Label>
           <Select onValueChange={(val) => setValue("yearGroup", val)}>
-            <SelectTrigger id="yearGroup" aria-invalid={!!errors.yearGroup}>
+            <SelectTrigger
+              id="yearGroup"
+              aria-invalid={!!errors.yearGroup}
+            >
               <SelectValue placeholder="Select year group" />
             </SelectTrigger>
             <SelectContent>
-              {["Year 7", "Year 8", "Year 9", "Year 10", "Year 11"].map((y) => (
-                <SelectItem key={y} value={y}>
-                  {y}
-                </SelectItem>
-              ))}
+              {["Year 7", "Year 8", "Year 9", "Year 10", "Year 11"].map(
+                (y) => (
+                  <SelectItem key={y} value={y}>
+                    {y}
+                  </SelectItem>
+                )
+              )}
             </SelectContent>
           </Select>
           {errors.yearGroup && (
-            <p className="text-xs text-[var(--destructive)]" role="alert">
+            <p
+              className="text-xs text-[var(--destructive)]"
+              role="alert"
+            >
               {errors.yearGroup.message}
             </p>
           )}
@@ -202,7 +228,10 @@ export function ContactForm() {
       </div>
 
       {error && (
-        <p className="rounded-md bg-[var(--destructive)]/10 p-3 text-sm text-[var(--destructive)]" role="alert">
+        <p
+          className="rounded-md bg-[var(--destructive)]/10 p-3 text-sm text-[var(--destructive)]"
+          role="alert"
+        >
           {error}
         </p>
       )}
@@ -219,7 +248,8 @@ export function ContactForm() {
       </Button>
 
       <p className="text-center text-xs text-[var(--text-secondary)]">
-        I aim to respond within 24 hours. Your details are kept private and secure.
+        I aim to respond within 24 hours. Your details are kept private and
+        secure.
       </p>
     </form>
   );
