@@ -102,11 +102,12 @@ export function BookingForm() {
     <form
       name="booking"
       method="POST"
-      netlify
+      data-netlify="true"
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-5"
       noValidate
     >
+      <input type="hidden" name="form-name" value="booking" />
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-1.5">
           <Label htmlFor="b-parentName">

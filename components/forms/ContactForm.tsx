@@ -97,11 +97,12 @@ export function ContactForm() {
     <form
       name="contact"
       method="POST"
-      netlify
+      data-netlify="true"
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-5"
       noValidate
     >
+      <input type="hidden" name="form-name" value="contact" />
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-1.5">
           <Label htmlFor="parentName">Your name (parent / guardian) *</Label>
